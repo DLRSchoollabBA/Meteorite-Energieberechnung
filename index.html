@@ -13,6 +13,24 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         function update() {
+            var ku = parseFloat(document.getElementById('in_ku').value);
+            document.getElementById('ku').innerHTML = "\\(" + ku.toFixed(2).replace('.', ',') + "\\)";
+
+            var dm = document.getElementById('in_dm').value;
+            var du = document.getElementById('in_du').value;
+            document.getElementById('rho').innerHTML = "\\(\\left(\\frac {" + dm + " \\frac {kg}{m^3}} {" + du + " \\frac {kg}{m^3}}\\right)^\\frac 13\\)"
+
+            var D = Math.round(10 ** parseFloat(document.getElementById('in_size').value), 0);
+            document.getElementById('size').innerHTML = "\\(\\left(" + D + " m\\right)^{0,78}\\)";
+
+            var v = 1000 * Math.round(parseFloat(document.getElementById('in_v').value) * 8, 0);
+            document.getElementById('v').innerHTML = "\\(\\left(" + v + " \\frac m s\\right)^{0,44}\\)";
+
+            var theta = parseInt(document.getElementById('in_theta').value);
+            document.getElementById('theta').innerHTML = "\\(\\sqrt[3]{sin ~ " + theta + "°}\\)";
+
+            d_crater = ku * Math.pow(dm / du, 1 / 3) * Math.pow(D, 0.78) * Math.pow(v, 0.44) * Math.pow(Math.sin(theta * Math.PI / 180), 1 / 3) * 0.605;
+            document.getElementById('d').innerHTML = "\\(" + (d_crater / 1000).toFixed(2) + " km\\)";
             
             var ges = 1000 * Math.round(parseFloat(document.getElementById('in_ges').value) * 8, 0);
             document.getElementById('ges').innerHTML = "\\(\\left(" + Geschw. + " \\frac m s\\right)^{2}\\)";
