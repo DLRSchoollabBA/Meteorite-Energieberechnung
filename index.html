@@ -15,11 +15,13 @@
         function update() {
             
             var ges = 1000 * Math.round(parseFloat(document.getElementById('in_ges').value) * 8, 0);
-            document.getElementById('ges').innerHTML = "\\(\\left(" + Geschw. + " \\frac m s\\right)^{0,44}\\)";
+            document.getElementById('ges').innerHTML = "\\(\\left(" + Geschw. + " \\frac m s\\right)^{2}\\)";
             
             var mas = parseFloat(document.getElementById('in_mas').value);
+            document.getElementById('mas').innerHTML = "\\(" + mas.toFixed(2).replace('.', ',') + "\\)";
             
             var energie = 0.5 * Math.pow(ges , 2) * mas;
+            document.getElementById('energie').innerHTML = "\\(" + energie.toFixed(2).replace('.', ',') + "\\)";
             
             MathJax.typesetPromise();
             updateImage();
