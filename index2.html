@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Energieberechnung-DLR_School_Lab</title>
+
+    <!-- icon für den Tab, Ansicht im Browser -->
+    <link rel="icon" href="./img/DLR_Logo.png" type="image/icon type">
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        function update() {
+            
+            var ges = 1000 * Math.round(parseFloat(document.getElementById('in_ges').value) * 8, 0);
+            // Problem: "Geschw." ist keine Variable, die heißt nämlich ges
+            // document.getElementById('ges').innerHTML = "\\(\\left(" + Geschw. + " \\frac m s\\right)^{2}\\)";
+            document.getElementById('ges').innerHTML = "\\(\\left(" + ges + " \\frac m s\\right)^{2}\\)";
+            
+            var mas = parseFloat(document.getElementById('in_mas').value);
+            // Problem: Das Element hat die id "masse", nicht "mas"
+          	// document.getElementById('mas').innerHTML = "\\(" + mas.toFixed(2).replace('.', ',') + "\\)";
+            document.getElementById('masse').innerHTML = "\\(" + mas.toFixed(0).replace('.', ',') + " kg\\)";
+            						
+	          var energie = 0.5 * Math.pow(ges , 2) * mas;
+            document.getElementById('energie').innerHTML = "\\(" + (energie/1e9).toFixed(0).replace('.', ',') + "GJ\\)";
+  
+          	MathJax.typesetPromise();
+        }
+
+        window.onload = (() => {
+            update();
+        });
+    </script>
+  
+    <style>
+      	body {
+      		background: rgba(0,0,0,0);  /* transparent */
+          color: #222;
+      	}
+      
+        td {
+            text-align: center;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .vrange {
+            width: 200px;
+            margin-top: 100px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            transform: rotate(270deg);
+            -moz-transform: rotate(270deg);
+            /*do same for other browsers if required*/
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Energie des Einschlags</h3>
+    <table>
+        <tr>
+            <td>\(\frac{1}{2}\)</td>
+            <td>\(\cdot\)</td>
+            <td>\(v^{2}\)</td>
+            <td>\(\cdot\)</td>
+            <td>\(m\)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Geschwindigkeit</td>
+            <td></td>
+            <td>Masse</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><input type='range' min='1' max='9' step='0.05' id='in_ges' value='2.5' oninput='update();'></td>
+            <td></td>
+            <td><input type='range' min='100' max='10000' step='100' id='in_mas' value='400' oninput='update();'></td>
+        <tr>
+            <td>\(\frac {1}{2}\)</td>
+            <td>\(\cdot\)</td>
+            <td id='ges'></td>
+            <td>\(\cdot\)</td>
+            <td id='masse'></td>
+            <td>\(=\)</td>
+            <td id='energie'></td>
+        </tr>
+        
+    </table>
+		<a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
+    
+ <!--   <img src='./img/Norddeutschland_Wiki.png' width='400' height='400' id='map'>
+    <canvas id='mycanvas' width='400' height='400'></canvas> -->
+ 
+ 
+</body>
+
+</html>
