@@ -15,22 +15,43 @@
         function update() {
             
             var ges = 1000 * Math.round(parseFloat(document.getElementById('in_ges').value) * 8, 0);
-            // Problem: "Geschw." ist keine Variable, die heißt nämlich ges
-            // document.getElementById('ges').innerHTML = "\\(\\left(" + Geschw. + " \\frac m s\\right)^{2}\\)";
             document.getElementById('ges').innerHTML = "\\(\\left(" + ges + " \\frac m s\\right)^{2}\\)";
             
             var mas = parseFloat(document.getElementById('in_mas').value);
-            // Problem: Das Element hat die id "masse", nicht "mas"
-          	// document.getElementById('mas').innerHTML = "\\(" + mas.toFixed(2).replace('.', ',') + "\\)";
             document.getElementById('masse').innerHTML = "\\(" + mas.toFixed(0).replace('.', ',') + " kg\\)";
             						
-	          var energie = 0.5 * Math.pow(ges , 2) * mas;
+	    var energie = 0.5 * Math.pow(ges , 2) * mas;
             document.getElementById('energie').innerHTML = "\\(" + (energie/1e9).toFixed(0).replace('.', ',') + "GJ\\)";
-  
-          	MathJax.typesetPromise();
+		
+		updateImage();
+		MathJax.typesetPromise();
         }
-
+	    
+	 function updateImage() {
+            switch(energie) {
+  		case < 100e9:
+		evgl1.style.display = "block";
+		evgl2.style.display = "none";
+		evgl3.style.display = "none";
+		evgl4.style.display = "none";
+   		 break;
+  		case < 200e9:
+		evgl1.style.display = "block";
+		evgl2.style.display = "block";
+		evgl3.style.display = "none";
+		evgl4.style.display = "none";
+    		break;
+  		default:
+		evgl1.style.display = "none";
+		evgl2.style.display = "none";
+		evgl3.style.display = "none";
+		evgl4.style.display = "none";
+}
+	 }
+		 
+		 
         window.onload = (() => {
+		img = document.getElementById("evgl1");
             update();
         });
     </script>
@@ -100,10 +121,10 @@
 	<p>
 		<a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
     
- <!--   <img src='./img/Norddeutschland_Wiki.png' width='400' height='400' id='map'>
-    <canvas id='mycanvas' width='400' height='400'></canvas> -->
- 
- 
+<img src='./img/Norddeutschland_Wiki.png' width='100' height='100' id='evgl1'>
+<img src='./img/Norddeutschland_Wiki.png' width='100' height='100' id='evgl2'>
+<img src='./img/Norddeutschland_Wiki.png' width='100' height='100' id='evgl3'>
+<img src='./img/Norddeutschland_Wiki.png' width='400' height='100' id='evgl4'>
 </body>
 
 </html>
