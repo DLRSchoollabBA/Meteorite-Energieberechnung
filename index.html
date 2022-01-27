@@ -28,26 +28,22 @@
         }
 	    
 	 function updateImage() {
+		console.log("updateImage");
+		text = "";
+		
             switch(energie) {
+		case < 200e9:
+		text += "<img src='e.jpg' width='50px'>";
+		console.log(text);
   		case < 100e9:
-		evgl1.style.display = "block";
-		evgl2.style.display = "none";
-		evgl3.style.display = "none";
-		evgl4.style.display = "none";
-   		 break;
-  		case < 200e9:
-		evgl1.style.display = "block";
-		evgl2.style.display = "block";
-		evgl3.style.display = "none";
-		evgl4.style.display = "none";
+		text += "<img src='e.jpg' width='50px'>";
+		console.log(text);
     		break;
   		default:
-		evgl1.style.display = "none";
-		evgl2.style.display = "none";
-		evgl3.style.display = "none";
-		evgl4.style.display = "none";
+		
 		break;
-}
+	    }
+	document.getElementById('bilder').innerHTML = text;
 	 }
 		 
 		 
@@ -121,11 +117,10 @@
 	<p>
 	<p>
 		<a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
-    
-<img src='./img/Norddeutschland_Wiki.png' width='100' height='100' id='evgl1'>
-<img src='./img/Norddeutschland_Wiki.png' width='100' height='100' id='evgl2'>
-<img src='./img/Norddeutschland_Wiki.png' width='100' height='100' id='evgl3'>
-<img src='./img/Norddeutschland_Wiki.png' width='100' height='100' id='evgl4'>
+
+		
+<div id='bilder'>
+	
 </body>
 
 </html>
