@@ -34,16 +34,16 @@
 		text = "";
 		var TNT = 4.2e12;
 		
-           	if(energie > TNT){
+           	if(energie >= TNT && energie < (2*TNT)){
 			text += "<img src='./img/e.png' width='50px'>";
 			console.log(text);
 	    	}
-		else if(energie > (2*TNT)){
+		else if(energie >= (2*TNT) && energie < (3*TNT)){
 			text += "<img src='./img/e.png' width='50px'>";
 			text += "<img src='./img/e.png' width='50px'>";
 			console.log(text);
 		}
-		else if(energie > (3*TNT)){
+		else if(energie >= (3*TNT)){
 			text += "<img src='./img/e.png' width='50px'>";
 			text += "<img src='./img/e.png' width='50px'>";
 			text += "<img src='./img/e.png' width='50px'>";
