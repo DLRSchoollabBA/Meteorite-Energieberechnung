@@ -23,7 +23,7 @@
             document.getElementById('masse').innerHTML = "\\(" + mas.toFixed(0).replace('.', ',') + " kg\\)";
             						
 	    energie = 0.5 * Math.pow(ges , 2) * mas;
-            document.getElementById('energie').innerHTML = "\\(" + (energie/1e9).toFixed(0).replace('.', ',') + "GJ\\)";
+            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e9).toFixed(0).replace('.', ',') + "GJ\\)";
 		
 		updateImage();
 		MathJax.typesetPromise();
@@ -113,7 +113,7 @@
             <td>\(\cdot\)</td>
             <td id='masse'></td>
             <td>\(=\)</td>
-            <td id='energie'></td>
+            <td id='calcenergie'></td>
         </tr>
         
     </table>
