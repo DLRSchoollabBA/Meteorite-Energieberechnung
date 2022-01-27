@@ -35,14 +35,16 @@
 		
             switch(true) {
 			    
-		case (energie < 8.4e12):
-			text += "<img src='./img/e.png' width='50px'>";
-			console.log(text);
+
 		case (energie < 4.2e12):
 			text += "<img src='./img/e.png' width='50px'>";
 			console.log(text);
 			break
-
+		case (energie < 8.4e12):
+			text += "<img src='./img/e.png' width='50px'>";
+			text += "<img src='./img/e.png' width='50px'>";
+			console.log(text);
+			break
 		default:
     			console.log('Irgendetwas stimmt hier nicht');
 		
