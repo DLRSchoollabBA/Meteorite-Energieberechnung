@@ -32,17 +32,26 @@
 	 function updateImage() {
 		console.log("updateImage");
 		text = "";
+		var TNT = 4.2e12;
 		
-           	if(energie < 4.2e12){
+           	if(energie > TNT){
 			text += "<img src='./img/e.png' width='50px'>";
 			console.log(text);
 	    	}
-		else if(energie < 8.4e12){
+		else if(energie > (2*TNT)){
 			text += "<img src='./img/e.png' width='50px'>";
 			text += "<img src='./img/e.png' width='50px'>";
 			console.log(text);
 		}
-		else{console.log('Irgendetwas stimmt hier nicht');}
+		else if(energie > (3*TNT)){
+			text += "<img src='./img/e.png' width='50px'>";
+			text += "<img src='./img/e.png' width='50px'>";
+			text += "<img src='./img/e.png' width='50px'>";
+			console.log(text);
+		}
+		else{ text = "Dein Astroid ist noch nicht stark genug!";
+			console.log(text);
+		    }
     			
 	document.getElementById('bilder').innerHTML = text;
 	 }
@@ -115,12 +124,12 @@
         </tr>
         
     </table>
+	<h6>Die Einschlagsenergie hat ungefähr ein Äuqivalent von </h6>
+	<div id='bilder'>
+	<h6>Wasserstoffbomben. </h6>
 	<p>
 	<p>
-		<a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
-
-		
-<div id='bilder'>
+<a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
 	
 </body>
 
