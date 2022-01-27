@@ -12,6 +12,8 @@
 
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
+	    var energie = 0;
+	    
         function update() {
             
             var ges = 1000 * Math.round(parseFloat(document.getElementById('in_ges').value) * 8, 0);
@@ -20,7 +22,7 @@
             var mas = parseFloat(document.getElementById('in_mas').value);
             document.getElementById('masse').innerHTML = "\\(" + mas.toFixed(0).replace('.', ',') + " kg\\)";
             						
-	    var energie = 0.5 * Math.pow(ges , 2) * mas;
+	    energie = 0.5 * Math.pow(ges , 2) * mas;
             document.getElementById('energie').innerHTML = "\\(" + (energie/1e9).toFixed(0).replace('.', ',') + "GJ\\)";
 		
 		updateImage();
@@ -32,10 +34,11 @@
 		text = "";
 		
             switch(energie) {
-		case < 200e9:
+		case (0 <= energie &&  energie < 100e9):
 		text += "<img src='e.jpg' width='50px'>";
 		console.log(text);
-  		case < 100e9:
+		break
+  		case (100e9 <= energie &&  energie < 800e9):
 		text += "<img src='e.jpg' width='50px'>";
 		console.log(text);
     		break;
