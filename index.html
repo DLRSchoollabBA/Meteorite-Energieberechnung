@@ -33,18 +33,15 @@
 		console.log("updateImage");
 		text = "";
 		
-            switch(createImage) {
-		case (0 <= energie &&  energie < 100e9):
+            switch(true) {
+		case (energie < 100e9):
 		text += "<img src='e.png' width='50px'>";
 		console.log(text);
 		break
-  		case (100e9 <= energie &&  energie < 800e9):
+  		case (energie < 800e9):
 		text += "<img src='e.png' width='50px'>";
 		console.log(text);
     		break;
-  		default:
-		
-		break;
 	    }
 	document.getElementById('bilder').innerHTML = text;
 	 }
