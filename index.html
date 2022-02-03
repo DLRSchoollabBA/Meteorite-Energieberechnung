@@ -20,7 +20,7 @@
             document.getElementById('ges').innerHTML = "\\(\\left(" + ges + " \\frac m s\\right)^{2}\\)";
             
             var mas = parseFloat(document.getElementById('in_mas').value);
-            document.getElementById('masse').innerHTML = "\\(" + mas.toFixed(0).replace('.', ',') + " kg\\)";
+            document.getElementById('masse').innerHTML = "\\(" + (mas/1000).toFixed(0).replace('.', ',') + " t\\)";
             						
 	    energie = 0.5 * Math.pow(ges , 2) * mas;
             document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e9).toFixed(0).replace('.', ',') + "GJ\\)";
