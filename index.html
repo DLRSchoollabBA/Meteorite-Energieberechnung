@@ -23,7 +23,7 @@
             document.getElementById('masse').innerHTML = "\\(" + (mas/1000).toFixed(0).replace('.', ',') + " t\\)";
             						
 	    energie = 0.5 * Math.pow(ges , 2) * mas;
-            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e15).toFixed(0).replace('.', ',') + "PJ\\)";
+            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e18).toFixed(0).replace('.', ',') + "EJ\\)";
 		
 		updateImage();
 		MathJax.typesetPromise();
