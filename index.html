@@ -32,7 +32,7 @@
 	 function updateImage() {
 		console.log("updateImage");
 		text = "";
-		var TNT = 100*(4.2e12); <!-----1kT TNT = 4.2e12J eine "normale" Fissionsbombe hat "mehrere hundert Kilotonnen TNT"----->
+		var TNT = 100e6*(4.2e12); <!-----1kT TNT = 4.2e12J eine "normale" Fissionsbombe hat "mehrere hundert Kilotonnen TNT" und maximale Sprengkraft der zweiten Stufe von bis zu etwa 100 MT ----->
 		 
 		if(energie >= TNT && energie < (2*TNT)){
 			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
@@ -150,7 +150,7 @@
     </table>
 	<h3>Die Einschlagsenergie hat ungefähr ein Äuqivalent von </h3>
 	<div id='bilder'></div>
-	<h3>Wasserstoffbomben mit jeweils 420 Tera- Joule. </h3>
+	<h3>Wasserstoffbomben mit jeweils 420 Exa (das sind 18 Nullen)- Joule.  </h3>
 	<p>
 	<p>
 <a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
