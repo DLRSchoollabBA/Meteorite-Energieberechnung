@@ -22,8 +22,8 @@
             var mas = parseFloat(10 ** parseFloat(document.getElementById('in_mas').value),0);
             document.getElementById('masse').innerHTML = "\\(" + (mas/1000).toFixed(0).replace('.', ',') + " t\\)";
             						
-	    energie = 0.5 * Math.pow(ges , 2) * mas;
-            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e18).toFixed(0).replace('.', ',') + "EJ\\)";
+	    energie = (0.5 * Math.pow(ges , 2) * mas)/3.6 ;
+            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e18).toFixed(0).replace('.', ',') + "Wh\\)";
 		
 		updateImage();
 		MathJax.typesetPromise();
