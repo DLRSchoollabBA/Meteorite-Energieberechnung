@@ -23,7 +23,7 @@
             document.getElementById('masse').innerHTML = "\\(" + (mas/1000).toFixed(0).replace('.', ',') + " t\\)";
             						
 	    energie = (0.5 * Math.pow(ges , 2) * mas)/3.6 ;
-            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e18).toFixed(0).replace('.', ',') + "Wh\\)";
+            document.getElementById('calcenergie').innerHTML = "\\(" + (energie).toFixed(0).replace('.', ',') + "Wh\\)";
 		
 		updateImage();
 		MathJax.typesetPromise();
@@ -45,23 +45,19 @@
 		
 		var AnzStd4Pers = energie/Std4Pers; 
 		 
-		if(energie >= Std4Pers ){
-			text += "<img src='./img/Sanduhr_200.jpg' width='50px' hspace='20px'>";
-			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
-			console.log(text);
-	    	}
-		else if(energie >= Tag4Pers ){
-			text += "<img src='./img/uhr_200.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
-			console.log(text);
-		}
-		else if(energie >= Jahr4Pers ){
+		
+		if(energie >= JahrWelt ){
 			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
-			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/Welt_200.jpg' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= StdBer ){
-			text += "<img src='./img/Sanduhr_200.jpg' width='50px' hspace='20px'>";
+		else if(energie >= JahrDeut ){
+			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/Deutschland_200.jpg' width='50px' hspace='20px'>";
+			console.log(text);
+		}
+		else if(energie >= JahrBer ){
+			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
 			text += "<img src='./img/berlin_200.png' width='50px' hspace='20px'>";
 			console.log(text);
 		}
@@ -70,21 +66,27 @@
 			text += "<img src='./img/berlin_200.png' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= JahrBer ){
-			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
+		else if(energie >= StdBer ){
+			text += "<img src='./img/Sanduhr_200.jpg' width='50px' hspace='20px'>";
 			text += "<img src='./img/berlin_200.png' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= JahrDeut ){
+		else if(energie >= Jahr4Pers ){
 			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
-			text += "<img src='./img/Deutschland_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= JahrWelt ){
-			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
-			text += "<img src='./img/Welt_200.jpg' width='50px' hspace='20px'>";
+		else if(energie >= Tag4Pers ){
+			text += "<img src='./img/uhr_200.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
 			console.log(text);
 		}
+		else if(energie >= Std4Pers ){
+			text += "<img src='./img/Sanduhr_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
+			console.log(text);
+	    	}
+				 
 		else{ text = "0 (also dein Astroid ist </br> zum Glück noch nicht so zerstörerisch) ";
 			console.log(text);
 		    }
