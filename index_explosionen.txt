@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<background:rgba(255,255,255,0)>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Energieberechnung-DLR_School_Lab</title>
+
+    <!-- icon für den Tab, Ansicht im Browser -->
+    <link rel="icon" href="./img/DLR_Logo.png" type="image/icon type">
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+	    var energie = 0;
+	    
+        function update() {
+            
+            var ges = 1000 * Math.round(parseFloat(document.getElementById('in_ges').value) * 8, 0);
+            document.getElementById('ges').innerHTML = "\\(\\left(" + ges + " \\frac m s\\right)^{2}\\)";
+            
+            var mas = parseFloat(10 ** parseFloat(document.getElementById('in_mas').value),0);
+            document.getElementById('masse').innerHTML = "\\(" + (mas/1000).toFixed(0).replace('.', ',') + " t\\)";
+            						
+	    energie = 0.5 * Math.pow(ges , 2) * mas;
+            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1e18).toFixed(0).replace('.', ',') + "EJ\\)";
+		
+		updateImage();
+		MathJax.typesetPromise();
+        }
+	    
+	 function updateImage() {
+		console.log("updateImage");
+		text = "";
+		var TNT = 100e6*(4.2e12); <!-----1kT TNT = 4.2e12J eine "normale" Fissionsbombe hat "mehrere hundert Kilotonnen TNT" und maximale Sprengkraft der zweiten Stufe von bis zu etwa 100 MT ----->
+		 
+		if(energie >= TNT && energie < (2*TNT)){
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			console.log(text);
+	    	}
+		else if(energie >= (2*TNT) && energie < (3*TNT)){
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			console.log(text);
+		}
+		else if(energie >= (3*TNT) && energie < (4*TNT)){
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			console.log(text);
+		}
+		else if(energie >= (4*TNT) && energie < (5*TNT)){
+			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
+			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
+			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
+			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
+			console.log(text);
+		}
+		else if(energie >= (5*TNT) && energie < (6*TNT)){
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			console.log(text);
+		}
+		else if(energie >= (6*TNT)){
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+			console.log(text);
+		}
+		else{ text = "0 (also dein Astroid ist </br> zum Glück noch nicht so zerstörerisch) ";
+			console.log(text);
+		    }
+    			
+	document.getElementById('bilder').innerHTML = text;
+	 }
+		 
+		 
+        window.onload = (() => {
+			;
+            update();
+        });
+    </script>
+  
+    <style>
+      	body {
+      		background: rgba(0,0,0,0);  /* transparent */
+          color: #222;
+      	}
+      
+        td {
+            text-align: center;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .vrange {
+            width: 200px;
+            margin-top: 100px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            transform: rotate(270deg);
+            -moz-transform: rotate(270deg);
+            /*do same for other browsers if required*/
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Energie des Einschlags</h3>
+    <table>
+        <tr>
+            <td>\(\frac{1}{2}\)</td>
+            <td>\(\cdot\)</td>
+            <td>\(v^{2}\)</td>
+            <td>\(\cdot\)</td>
+            <td>\(m\)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Geschwindigkeit</td>
+            <td></td>
+            <td>Masse</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><input type='range' min='1' max='9' step='0.05' id='in_ges' value='2.5' oninput='update();'></td>
+            <td></td>
+            <td><input type='range' min='1' max='20' step='0.05' id='in_mas' value='5' oninput='update();'></td>
+        <tr>
+            <td>\(\frac {1}{2}\)</td>
+            <td>\(\cdot\)</td>
+            <td id='ges'></td>
+            <td>\(\cdot\)</td>
+            <td id='masse'></td>
+            <td>\(=\)</td>
+            <td id='calcenergie'></td>
+        </tr>
+        
+    </table>
+	<h3>Die Einschlagsenergie hat ungefähr ein Äuqivalent von </h3>
+	<div id='bilder'></div>
+	<h3>Wasserstoffbomben mit jeweils 420 Exa (das sind 18 Nullen)- Joule.  </h3>
+	<p>
+	<p>
+<a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
+	
+</body>
+
+</html>
