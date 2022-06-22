@@ -33,44 +33,55 @@
 		console.log("updateImage");
 		text = "";
 		var TNT = 100e6*(4.2e12); <!-----1kT TNT = 4.2e12J eine "normale" Fissionsbombe hat "mehrere hundert Kilotonnen TNT" und maximale Sprengkraft der zweiten Stufe von bis zu etwa 100 MT ----->
+		
+		var Std4Pers = 5.14e4;
+		var Tag4Pers = 4.5e6;
+		var Jahr4Pers = 4.5e8;
+		var StdBer = 1.59e11;
+		var TagBer = 1.39e12;
+		var JahrBer = 1.39e15;
+		var JahrDeut = 6e16;
+		var JahrWelt = 2.2e18;
+		
 		 
-		if(energie >= TNT && energie < (2*TNT)){
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+		if(energie >= Std4Pers ){
+			text += "<img src='./img/Sanduhr_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
 			console.log(text);
 	    	}
-		else if(energie >= (2*TNT) && energie < (3*TNT)){
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+		else if(energie >= Tag4Pers ){
+			text += "<img src='./img/uhr_200.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= (3*TNT) && energie < (4*TNT)){
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+		else if(energie >= Jahr4Pers ){
+			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/4Pers_200.jpg' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= (4*TNT) && energie < (5*TNT)){
-			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
-			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
-			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
-			text += "<img src='./img/e.png' width='50px' hspace='20px' >";
+		else if(energie >= StdBer ){
+			text += "<img src='./img/Sanduhr_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/berlin_200.png' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= (5*TNT) && energie < (6*TNT)){
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+		else if(energie >= TagBer ){
+			text += "<img src='./img/uhr_200.png' width='50px' hspace='20px'>";
+			text += "<img src='./img/berlin_200.png' width='50px' hspace='20px'>";
 			console.log(text);
 		}
-		else if(energie >= (6*TNT)){
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
-			text += "<img src='./img/e.png' width='50px' hspace='20px'>";
+		else if(energie >= JahrBer ){
+			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/berlin_200.png' width='50px' hspace='20px'>";
+			console.log(text);
+		}
+		else if(energie >= JahrDeut ){
+			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/Deutschland_200.jpg' width='50px' hspace='20px'>";
+			console.log(text);
+		}
+		else if(energie >= JahrWelt ){
+			text += "<img src='./img/kalender_200.jpg' width='50px' hspace='20px'>";
+			text += "<img src='./img/Welt_200.jpg' width='50px' hspace='20px'>";
 			console.log(text);
 		}
 		else{ text = "0 (also dein Astroid ist </br> zum Glück noch nicht so zerstörerisch) ";
