@@ -44,7 +44,7 @@
 		var JahrWelt = 2.2e18;
 		
 		var AnzStd4Pers = energie/Std4Pers; 
-		document.getElementById('calcenergieWatt').innerHTML = AnzStd4Pers ; 
+		document.getElementById('calcenergieAnz').innerHTML = "\\(" + (AnzStd4Pers).toFixed(0).replace('.', ',') + "\\)" ; 
 		
 		if(energie >= JahrWelt ){
 			text += "<img src='./img/kalender_200.jpg' width='200px' hspace='20px'>";
@@ -162,9 +162,9 @@
         </tr>
         
     </table>
-	<h3>Die Einschlagsenergie hat ungefähr ein Äuqivalent von <span id="calcenergiewatt"></span> Wattstunden oder </h3>
+	<h3>Die Einschlagsenergie hat ungefähr ein Äuqivalent von <span id="calcenergie"></span> Wattstunden oder </h3>
 	<div id='bilder'></div>
-	<h3> damit könnte man </h3>
+	<h3> damit könnte man für <span id="calcenergieAnz"></span></h3>
 	<p>
 	<p>
 <a href="https://dlrschoollabba.github.io/Meteorite-Kraterberechnung">Hier gehts zur Größenberechnung des Einschlags.</a>
