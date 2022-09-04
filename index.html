@@ -25,7 +25,7 @@
 	    energie = (0.5 * Math.pow(ges , 2) * mas)/3.6 ;
             document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1000).toFixed(0).replace('.', ',') + " kJ\\)";
 	
-            <!---- document.getElementById('calcenergieWatt').innerHTML = "\\(" + (energie/(1000*3600)).toFixed(0).replace('.', ',') + " Wh\\"; ----!> 
+            document.getElementById('calcenergieWatt').innerHTML = "\\(" + (energie/(1000*3600)).toFixed(0).replace('.', ',') + " Wh\\";
 		
 		updateImage();
 		MathJax.typesetPromise();
@@ -164,9 +164,10 @@
         </tr>
         
     </table>
-	<h3>Die Einschlagsenergie hat ungefähr ein Äuqivalent vonWattstunden oder </h3>
+	<h3>Die Einschlagsenergie hat ungefähr ein Äuqivalent von <span id= calcenergieWatt></span>Wattstunden oder </h3>
 	<div id='bilder'></div>
-	<h3> damit könnte man für Kalender = Jahr </br>
+	<h3> damit könnte man für </br>
+		Kalender = Jahr </br>
 		Uhr = Tage</br>
 		Sanduhr = Stunden</h3>
 	<p>
