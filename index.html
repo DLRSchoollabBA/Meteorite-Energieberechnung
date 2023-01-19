@@ -20,11 +20,11 @@
             document.getElementById('ges').innerHTML = "\\(\\left(" + ges + " \\frac m s\\right)^{2}\\)";
             
             var mas = parseFloat(10 ** parseFloat(document.getElementById('in_mas').value),0);
-            document.getElementById('masse').innerHTML = "\\(" + (mas/1000).toFixed(0).replace('.', ',') + " t\\)";
+            document.getElementById('masse').innerHTML = "\\(" + (mas).toFixed(0).replace('.', ',') + " kg\\)";
             console.log(mas);	
 		
 	    energie = (0.5 * Math.pow(ges , 2) * mas)/3.6 ;
-            document.getElementById('calcenergie').innerHTML = "\\(" + (energie/1000).toFixed(0).replace('.', ',') + " kJ\\)";
+            document.getElementById('calcenergie').innerHTML = "\\(" + (energie).toFixed(0).replace('.', ',') + " J\\)";
 	
             document.getElementById('calcenergieWatt').innerHTML = (energie/(1000*3600)).toFixed(0).replace('.', ',');
 		
