@@ -37,14 +37,14 @@
 		text = "";
 		var TNT = 100e6*(4.2e12); <!-----1kT TNT = 4.2e12J eine "normale" Fissionsbombe hat "mehrere hundert Kilotonnen TNT" und maximale Sprengkraft der zweiten Stufe von bis zu etwa 100 MT ----->
 		
-		var Std4Pers = 5.14e4; <!---- Berechnungen in der "Daten Meteorite" Tabelle auf den Extsites ----!> 
-		var Tag4Pers = 4.5e6;
-		var Jahr4Pers = 4.5e8;
-		var StdBer = 1.59e11;
-		var TagBer = 1.39e12;
-		var JahrBer = 1.39e15;
-		var JahrDeut = 6e16;
-		var JahrWelt = 2.2e18;
+		var Std4Pers = 514*3600; <!-- Berechnungen in der "Daten Meteorite" Tabelle auf den Extsites ----!> 
+		var Tag4Pers = 12336*3600;
+		var Jahr4Pers = 4502640*3600;
+		var StdBer = 1.59e9*3600;
+		var TagBer = 3.82e10*3600;
+		var JahrBer = 1.39e13*3600;
+		var JahrDeut = 6e14*3600;
+		var JahrWelt = 2.2e16*3600;
 		
 		var AnzStd4Pers = energie/Std4Pers; 
 		<!---- document.getElementById('calcenergieAnz').innerHTML = "\\(" + (AnzStd4Pers).toFixed(0).replace('.', ',') + "\\)" ; ----!> 
