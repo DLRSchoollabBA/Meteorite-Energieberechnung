@@ -16,8 +16,8 @@
 	    
         function update() {
             
-            var ges = 1000 * Math.round(parseFloat(document.getElementById('in_ges').value) * 8, 0);
-            document.getElementById('ges').innerHTML = "\\(\\left(" + ges + " \\frac m s\\right)^{2}\\)";
+            var ges = parseFloat(10 ** parseFloat(document.getElementById('in_ges').value),0);
+            document.getElementById('ges').innerHTML = "\\(\\left(" + ges/1000 + " \\frac {km}{s}\\right)^{2}\\)";
             
             var mas = parseFloat(10 ** parseFloat(document.getElementById('in_mas').value),0);
             document.getElementById('masse').innerHTML = "\\(" + (mas).toFixed(0).replace('.', ',') + " kg\\)";
